@@ -27,4 +27,19 @@ public class InterviewDatabase {
         this.company.setCompanyId(1);
         return company;
     }
+    public boolean insertCandidate(Candidate candidate) {
+        boolean hasCandidate = false;
+        for (Candidate addedCandidate : candidateList) {
+            if (addedCandidate.getEmailId().equals(candidate.getEmailId())) {
+                hasCandidate = true;
+                break;
+            }
+        }
+        if (hasCandidate) {
+            return false;
+        } else {
+            candidateList.add(candidate);
+            return true;
+        }
+    }
  }
