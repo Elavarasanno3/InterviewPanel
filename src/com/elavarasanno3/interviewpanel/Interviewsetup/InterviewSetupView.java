@@ -3,7 +3,7 @@ package com.elavarasanno3.interviewpanel.Interviewsetup;
 import com.elavarasanno3.interviewpanel.InterviewPanel2024;
 import com.elavarasanno3.interviewpanel.login.LoginView;
 import com.elavarasanno3.interviewpanel.managecandidate.ManageCandidateView;
-import com.elavarasanno3.interviewpanel.manageinterviewer.ManageInterviewView;
+import com.elavarasanno3.interviewpanel.manageinterviewer.ManageInterviewerView;
 import com.elavarasanno3.interviewpanel.model.Company;
 
 import java.util.Scanner;
@@ -41,7 +41,7 @@ public class InterviewSetupView {
             int choice = in.nextInt();
             switch (choice) {
                 case 1:
-                    new ManageInterviewView().initAdd();
+                    new ManageInterviewerView().initAdd();
                     break;
                 case 2:
                     new ManageCandidateView().initAdd();

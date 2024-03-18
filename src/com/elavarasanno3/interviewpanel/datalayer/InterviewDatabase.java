@@ -10,7 +10,7 @@ public class InterviewDatabase {
     private static InterviewDatabase interviewDatabase;
     private Company company;
     private ArrayList <Candidate> candidateList = new ArrayList<>();
-    private ArrayList <Interviewer> interviewersList = new ArrayList<>();
+    private ArrayList <Interviewer> interviewerList = new ArrayList<>();
 
     public static InterviewDatabase getInstance(){
         if(interviewDatabase == null){
@@ -39,6 +39,21 @@ public class InterviewDatabase {
             return false;
         } else {
             candidateList.add(candidate);
+            return true;
+        }
+    }
+    public boolean insertInterviewer(Interviewer interviewer) {
+        boolean hasInterviewer = false;
+        for (Interviewer addedInterviewer : interviewerList) {
+            if (addedInterviewer.getEmailId().equals(interviewer.getEmailId())) {
+                hasInterviewer = true;
+                break;
+            }
+        }
+        if (hasInterviewer) {
+            return false;
+        } else {
+            interviewerList.add(interviewer);
             return true;
         }
     }
