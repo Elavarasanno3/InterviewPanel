@@ -1,5 +1,6 @@
 package com.elavarasanno3.interviewpanel.managecandidate;
 
+import com.elavarasanno3.interviewpanel.datalayer.InterviewDatabase;
 import com.elavarasanno3.interviewpanel.model.Candidate;
 
 import java.util.Scanner;
@@ -17,6 +18,8 @@ public class ManageCandidateView {
         candidate.setName(scanner.nextLine());
         System.out.println("\nEnter candidate emailId:");
         candidate.setEmailId(scanner.next());
+        System.out.println("\nEnter candidate Qualification:");
+        candidate.setQualification(scanner.next());
         manageCandidateModel.addNewCandidate(candidate);
     }
     public void onCandidateAdded(Candidate candidate){
@@ -40,4 +43,6 @@ public class ManageCandidateView {
             checkForAddNewCandidate();
         }
     }
+
+
 }

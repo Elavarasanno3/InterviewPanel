@@ -3,9 +3,19 @@ package com.elavarasanno3.interviewpanel.model;
 public class Interviewer {
     private String name;
     private int id;
+
+    private String password;
     private String phoneNo;
     private String emailId;
     private String address;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getName() {
         return name;
     }

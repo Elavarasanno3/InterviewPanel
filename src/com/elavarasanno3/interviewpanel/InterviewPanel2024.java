@@ -6,7 +6,7 @@ public class InterviewPanel2024 {
 
     private static InterviewPanel2024 interviewPanel;
     private String appName = "Interview Panel";
-    private String appVersion = "0.1.0";
+    private String appVersion = "0.0.1";
     private InterviewPanel2024(){
 
     }

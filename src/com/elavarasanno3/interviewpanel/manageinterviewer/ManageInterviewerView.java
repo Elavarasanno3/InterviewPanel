@@ -1,8 +1,10 @@
 package com.elavarasanno3.interviewpanel.manageinterviewer;
 
+import com.elavarasanno3.interviewpanel.datalayer.InterviewDatabase;
 import com.elavarasanno3.interviewpanel.model.Candidate;
 import com.elavarasanno3.interviewpanel.model.Interviewer;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManageInterviewerView {
@@ -18,6 +20,8 @@ public class ManageInterviewerView {
         interviewer.setName(scanner.nextLine());
         System.out.println("\nEnter Interviewer emailId:");
         interviewer.setEmailId(scanner.next());
+        System.out.println("\nEnter new password:");
+        interviewer.setPassword(scanner.next());
         manageInterviewerModel.addNewInterviewer(interviewer);
     }
     public void onInterviewerAdded(Interviewer interviewer){

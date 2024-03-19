@@ -12,9 +12,9 @@ public class LoginView {
         loginModel = new LoginModel(this);
     }
     public void init(){
-        System.out.println("--- " + InterviewPanel2024.getInstance().getAppName()+" ---\nversion : "+
-                InterviewPanel2024.getInstance().getAppVersion());
-        System.out.println("\nPlease login to proceed");
+        System.out.println("--- " + InterviewPanel2024.getInstance().getAppName()+" ---\n ---version : "+
+                InterviewPanel2024.getInstance().getAppVersion()+"---");
+        System.out.println("\n%%% Please login to proceed %%%");
         proceedLogin();
     }
     public void onLoginField(String alertMessage){

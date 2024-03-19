@@ -1,12 +1,14 @@
 package com.elavarasanno3.interviewpanel.Interviewsetup;
 
 import com.elavarasanno3.interviewpanel.InterviewPanel2024;
+import com.elavarasanno3.interviewpanel.datalayer.InterviewDatabase;
 import com.elavarasanno3.interviewpanel.login.LoginView;
 import com.elavarasanno3.interviewpanel.managecandidate.ManageCandidateView;
 import com.elavarasanno3.interviewpanel.manageinterviewer.ManageInterviewerView;
 import com.elavarasanno3.interviewpanel.model.Company;
 
 import java.util.Scanner;
+
 
 public class InterviewSetupView {
     private InterviewSetupModel interviewSetupModel;
@@ -27,17 +29,18 @@ public class InterviewSetupView {
         Company company = new Company();
         System.out.println("\nEnter company name :");
         company.setCompanyName(in.nextLine());
-        System.out.println("\nEnter company email");
+        System.out.println("\nEnter company email :");
         company.setEmailId(in.nextLine());
         interviewSetupModel.createCompany(company);
     }
 
     public void onSetupComplete(Company company){
         System.out.println("\nCompany setup completed\n");
+        System.out.println("\n\n ____________________________________________\n\n");
         System.out.println("\nCurrent Company Name - " + company.getCompanyName());
         Scanner in = new Scanner(System.in);
         while(true){
-            System.out.println("\n 1.Add Interviewer\n 2.Add Candidate\n 3.Search book\n 9.logout \n 0.Exit\n Enter your choice :");
+            System.out.println("\n 1.Add Interviewer\n 2.Add Candidate\n 3.Get Interviewer Details\n 4.Get Candidate Details\n 5.Remove Interviewer \n 6.Remove Candidate \n 9.logout \n 0.Exit\n Enter your choice :");
             int choice = in.nextInt();
             switch (choice) {
                 case 1:
@@ -47,8 +50,20 @@ public class InterviewSetupView {
                     new ManageCandidateView().initAdd();
                     break;
                 case 3:
-                    System.out.println("\nSearch  Feature is under development\nPlease choose some other option.\n");
-                    // new SearchBook().initSearch();
+                    InterviewDatabase.getInstance().getInterviewerListDetails();
+                    break;
+                case 4:
+                    InterviewDatabase.getInstance().getCandidateListDetails();
+                    break;
+                case 5:
+                    System.out.println("Enter the interviewer Id to delete");
+                    int interviewerId = in.nextInt();
+                    InterviewDatabase.getInstance().removeInterviewer(interviewerId);
+                    break;
+                case 6:
+                    System.out.println("Enter the candidate Id  to delete");
+                    int candidateId = in.nextInt();
+                    InterviewDatabase.getInstance().removeCandidate(candidateId);
                     break;
                 case 9:
                     System.out.println("\n-- You are logged out successfully -- \n\n");

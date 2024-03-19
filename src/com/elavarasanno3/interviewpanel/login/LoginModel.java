@@ -18,10 +18,10 @@ public class LoginModel {
     }
 
     private boolean isValidUserName(String userName) {
-        return userName.equals("zsgs")||userName.equals("zsgsAdmin");
+        return userName.equals("admin")||userName.equals("zsgsAdmin");
     }
 
     private boolean isValidPassword(String userName,String password) {
-        return (userName.equals("zsgs")&&password.equals("admin"))||(userName.equals("zsgsAdmin")&&password.equals("admin123"));
+        return (userName.equals("admin")&&password.equals("123"))||(userName.equals("zsgsAdmin")&&password.equals("admin123"));
     }
 }
