@@ -21,16 +21,32 @@ public class InterviewDatabase {
         return interviewerList;
     }
     public void removeInterviewer(int id){
-        System.out.println("Interviewer " + interviewerList.get(id).getName()+" removed Successfully");
-        interviewerList.remove(id+1);
+        if(!interviewerList.isEmpty()){
+            System.out.println("Interviewer " + interviewerList.get(id-1).getName()+" removed Successfully");
+            interviewerList.remove(id-1);
+        }else{
+            System.out.println("Interviewer list is Empty.");
+        }
+
+
     }
 
     public ArrayList<Candidate> getCandidateList(){
         return candidateList;
     }
     public void removeCandidate(int id){
-        System.out.println("Candidate " + candidateList.get(id).getName()+" removed Successfully");
-        candidateList.remove(id+1);
+        if(!candidateList.isEmpty()){
+            System.out.println("Candidate " + candidateList.get(id-1).getName()+" removed Successfully");
+            candidateList.remove(id-1);
+        }else{
+            System.out.println("Candidate list is empty.");
+        }
+
+    }
+    public Candidate getCandidate(){
+        Candidate candidate = candidateList.get(0);
+        candidateList.remove(0);
+        return candidate;
     }
 
     public static InterviewDatabase getInstance(){

@@ -16,12 +16,23 @@ public class ManageCandidateView {
         Scanner scanner = new Scanner(System.in);
         Candidate candidate = new Candidate();
         System.out.println("\nEnter candidate name:");
-        candidate.setName(scanner.nextLine());
-        System.out.println("\nEnter candidate emailId:");
-        candidate.setEmailId(scanner.next());
+        String name = scanner.next();
+        candidate.setName(name);
+        System.out.println("\nEnter candidate gmailId(google mail):");
+        String gmail = scanner.next();
+        candidate.setEmailId(gmail);
         System.out.println("\nEnter candidate Qualification:");
         candidate.setQualification(scanner.next());
-        manageCandidateModel.addNewCandidate(candidate);
+        if(manageCandidateModel.nameAndEmailVerification(name,gmail)){
+            manageCandidateModel.addNewCandidate(candidate);
+        }else{
+            initAdd();
+        }
+
+    }
+    public void alertMessage(String text){
+        System.out.println(text);
+        System.out.println("---------------------------------------------------");
     }
 
     public static void getCandidateListDetails(){

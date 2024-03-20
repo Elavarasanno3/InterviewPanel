@@ -30,8 +30,6 @@ public class InterviewSetupView {
         Company company = new Company();
         System.out.println("\nEnter company name :");
         company.setCompanyName(in.nextLine());
-        System.out.println("\nEnter company email :");
-        company.setEmailId(in.nextLine());
         interviewSetupModel.createCompany(company);
     }
 

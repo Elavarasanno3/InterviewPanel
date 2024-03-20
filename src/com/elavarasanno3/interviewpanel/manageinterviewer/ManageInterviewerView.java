@@ -17,12 +17,18 @@ public class ManageInterviewerView {
         Scanner scanner = new Scanner(System.in);
         Interviewer interviewer = new Interviewer();
         System.out.println("\nEnter Interviewer name:");
-        interviewer.setName(scanner.nextLine());
+        String name = scanner.next();
+        interviewer.setName(name);
         System.out.println("\nEnter Interviewer emailId:");
-        interviewer.setEmailId(scanner.next());
+        String gmail = scanner.next();
+        interviewer.setEmailId(gmail);
         System.out.println("\nEnter new password:");
         interviewer.setPassword(scanner.next());
-        manageInterviewerModel.addNewInterviewer(interviewer);
+        if(manageInterviewerModel.nameAndEmailVerification(name,gmail)){
+            manageInterviewerModel.addNewInterviewer(interviewer);
+        }else{
+            initAdd();
+        }
     }
     public static void getInterviewerListDetails(){
         ArrayList<Interviewer> interviewerList = InterviewDatabase.getInstance().getInterviewerList();
@@ -42,6 +48,10 @@ public class ManageInterviewerView {
     public void onInterviewerExist(Interviewer interviewer) {
         System.out.println("\n------- Interviewer '" + interviewer.getName() + "' already exist -------\n");
         checkForAddNewInterviewer();
+    }
+    public void alertMessage(String text){
+        System.out.println(text);
+        System.out.println("------------------------------------------------------------");
     }
     private void checkForAddNewInterviewer() {
         System.out.println("Do you want to add more Interviewer? \nType Yes/No");

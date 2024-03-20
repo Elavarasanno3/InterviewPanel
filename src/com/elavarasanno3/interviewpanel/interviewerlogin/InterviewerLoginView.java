@@ -2,6 +2,7 @@ package com.elavarasanno3.interviewpanel.interviewerlogin;
 
 import com.elavarasanno3.interviewpanel.InterviewPanel2024;
 import com.elavarasanno3.interviewpanel.Interviewsetup.InterviewSetupView;
+import com.elavarasanno3.interviewpanel.interviewpanel.InterviewPanelView;
 
 import java.util.Scanner;
 
@@ -39,6 +40,7 @@ public class InterviewerLoginView {
     public void loginSuccess() {
         System.out.println("Interviewer login successful");
         System.out.println("Start the interview");
+        new  InterviewPanelView().init();
     }
 
 }
