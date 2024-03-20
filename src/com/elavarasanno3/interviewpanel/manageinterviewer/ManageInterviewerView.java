@@ -24,6 +24,17 @@ public class ManageInterviewerView {
         interviewer.setPassword(scanner.next());
         manageInterviewerModel.addNewInterviewer(interviewer);
     }
+    public static void getInterviewerListDetails(){
+        ArrayList<Interviewer> interviewerList = InterviewDatabase.getInstance().getInterviewerList();
+        int  count = 1;
+        for(Interviewer interviewer : interviewerList){
+
+            System.out.println("Interviewer Details ::: \n_______________________________________");
+
+            System.out.println( count++ +  " --   Interviewer name : " + interviewer.getName() + " . Email id : "+ interviewer.getEmailId()+"  -- ");
+            System.out.println("\n");
+        }
+    }
     public void onInterviewerAdded(Interviewer interviewer){
         System.out.println("\n------- Interviewer'" + interviewer.getName() + "' added successfully ------- \n");
         checkForAddNewInterviewer();

@@ -17,35 +17,20 @@ public class InterviewDatabase {
         this.company = company;
     }
 
-    public void getInterviewerListDetails(){
-        int  count = 1;
-        for(Interviewer interviewer : interviewerList){
-
-            System.out.println("Interviewer Details ::: \n_______________________________________");
-
-            System.out.println( count++ +  " --   Interviewer name : " + interviewer.getName() + " . Email id : "+ interviewer.getEmailId()+"  -- ");
-            System.out.println("\n");
-        }
+    public ArrayList<Interviewer> getInterviewerList(){
+        return interviewerList;
     }
     public void removeInterviewer(int id){
         System.out.println("Interviewer " + interviewerList.get(id).getName()+" removed Successfully");
-        interviewerList.remove(id);
+        interviewerList.remove(id+1);
     }
 
-    public void getCandidateListDetails(){
-        int count = 1;
-        for(Candidate candidate : candidateList){
-            System.out.println("Candidate Details ::: \n_______________________________________");
-
-            System.out.println( count++ +  " --  Candidate name : " + candidate.getName());
-            System.out.println(" --  Candidate Qualification : "+ candidate.getQualification() );
-            System.out.println(" --  Candidate Email Id : " + candidate.getEmailId());
-            System.out.println("\n");
-        }
+    public ArrayList<Candidate> getCandidateList(){
+        return candidateList;
     }
     public void removeCandidate(int id){
         System.out.println("Candidate " + candidateList.get(id).getName()+" removed Successfully");
-        candidateList.remove(id);
+        candidateList.remove(id+1);
     }
 
     public static InterviewDatabase getInstance(){

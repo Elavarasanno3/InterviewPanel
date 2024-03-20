@@ -17,7 +17,7 @@ public class LoginModel {
         }
     }
 
-    private boolean isValidUserName(String userName) {
+    private boolean isValidUserName(String userName)     {
         return userName.equals("admin")||userName.equals("zsgsAdmin");
     }
 

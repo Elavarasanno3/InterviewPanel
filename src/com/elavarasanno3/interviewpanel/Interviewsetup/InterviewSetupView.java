@@ -2,6 +2,7 @@ package com.elavarasanno3.interviewpanel.Interviewsetup;
 
 import com.elavarasanno3.interviewpanel.InterviewPanel2024;
 import com.elavarasanno3.interviewpanel.datalayer.InterviewDatabase;
+import com.elavarasanno3.interviewpanel.interviewerlogin.InterviewerLoginView;
 import com.elavarasanno3.interviewpanel.login.LoginView;
 import com.elavarasanno3.interviewpanel.managecandidate.ManageCandidateView;
 import com.elavarasanno3.interviewpanel.manageinterviewer.ManageInterviewerView;
@@ -40,7 +41,9 @@ public class InterviewSetupView {
         System.out.println("\nCurrent Company Name - " + company.getCompanyName());
         Scanner in = new Scanner(System.in);
         while(true){
-            System.out.println("\n 1.Add Interviewer\n 2.Add Candidate\n 3.Get Interviewer Details\n 4.Get Candidate Details\n 5.Remove Interviewer \n 6.Remove Candidate \n 9.logout \n 0.Exit\n Enter your choice :");
+            System.out.println("\n 1.Add Interviewer\n 2.Add Candidate\n 3.Get Interviewer Details\n" +
+                    " 4.Get Candidate Details\n 5.Remove Interviewer \n 6.Remove Candidate \n 7.Interviewer Login \n" +
+                    " 9.logout \n 0.Exit\n Enter your choice :");
             int choice = in.nextInt();
             switch (choice) {
                 case 1:
@@ -50,10 +53,10 @@ public class InterviewSetupView {
                     new ManageCandidateView().initAdd();
                     break;
                 case 3:
-                    InterviewDatabase.getInstance().getInterviewerListDetails();
+                    ManageInterviewerView.getInterviewerListDetails();
                     break;
                 case 4:
-                    InterviewDatabase.getInstance().getCandidateListDetails();
+                    ManageCandidateView.getCandidateListDetails();
                     break;
                 case 5:
                     System.out.println("Enter the interviewer Id to delete");
@@ -64,6 +67,9 @@ public class InterviewSetupView {
                     System.out.println("Enter the candidate Id  to delete");
                     int candidateId = in.nextInt();
                     InterviewDatabase.getInstance().removeCandidate(candidateId);
+                    break;
+                case 7:
+                    new InterviewerLoginView().proceedLogin();
                     break;
                 case 9:
                     System.out.println("\n-- You are logged out successfully -- \n\n");

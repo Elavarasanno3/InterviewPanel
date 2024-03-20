@@ -3,6 +3,7 @@ package com.elavarasanno3.interviewpanel.managecandidate;
 import com.elavarasanno3.interviewpanel.datalayer.InterviewDatabase;
 import com.elavarasanno3.interviewpanel.model.Candidate;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManageCandidateView {
@@ -21,6 +22,19 @@ public class ManageCandidateView {
         System.out.println("\nEnter candidate Qualification:");
         candidate.setQualification(scanner.next());
         manageCandidateModel.addNewCandidate(candidate);
+    }
+
+    public static void getCandidateListDetails(){
+        ArrayList<Candidate> candidateList = InterviewDatabase.getInstance().getCandidateList();
+        int count = 1;
+        for(Candidate candidate : candidateList){
+            System.out.println("Candidate Details ::: \n_______________________________________");
+
+            System.out.println( count++ +  " --  Candidate name : " + candidate.getName());
+            System.out.println(" --  Candidate Qualification : "+ candidate.getQualification() );
+            System.out.println(" --  Candidate Email Id : " + candidate.getEmailId());
+            System.out.println("\n");
+        }
     }
     public void onCandidateAdded(Candidate candidate){
         System.out.println("\n------- Candidate '" + candidate.getName() + "' added successfully ------- \n");
