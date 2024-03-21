@@ -14,7 +14,7 @@ public class LoginView {
     public void init(){
         System.out.println("--- " + InterviewPanel2024.getInstance().getAppName()+" ---\n ---version : "+
                 InterviewPanel2024.getInstance().getAppVersion()+"---");
-        System.out.println("\n%%% Please login to proceed %%%");
+        System.out.println("\n--- Please login to proceed ---");
         proceedLogin();
     }
     public void onLoginField(String alertMessage){
