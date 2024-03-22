@@ -23,11 +23,11 @@ public class ManageCandidateModel {
             if(gmailVerification(gmail)){
                     return true;
             }else{
-                manageCandidateView.alertMessage("\n$$ Alert : Enter valid name & gmail-$$\n");
+                manageCandidateView.alertMessage("\n\nAlert : Enter valid name & gmail\n");
                 return false;
             }
         }else{
-            manageCandidateView.alertMessage("\n$$ Alert : Enter valid name $$\n");
+            manageCandidateView.alertMessage("\n\n Alert : Enter valid name\n");
             return false;
         }
 

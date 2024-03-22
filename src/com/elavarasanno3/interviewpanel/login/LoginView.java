@@ -34,9 +34,9 @@ public class LoginView {
         }
     }
     private void proceedLogin(){
-        System.out.print("Enter the user name : ");
+        System.out.print("\nEnter the Admin name : ");
         String userName = in.next();
-        System.out.print("Enter the password : ");
+        System.out.print("\nEnter the password : ");
         String password = in.next();
         loginModel.validateUser(userName,password);
     }

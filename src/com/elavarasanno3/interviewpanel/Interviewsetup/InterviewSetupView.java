@@ -6,8 +6,11 @@ import com.elavarasanno3.interviewpanel.interviewerlogin.InterviewerLoginView;
 import com.elavarasanno3.interviewpanel.login.LoginView;
 import com.elavarasanno3.interviewpanel.managecandidate.ManageCandidateView;
 import com.elavarasanno3.interviewpanel.manageinterviewer.ManageInterviewerView;
+import com.elavarasanno3.interviewpanel.model.Candidate;
 import com.elavarasanno3.interviewpanel.model.Company;
+import com.elavarasanno3.interviewpanel.model.Interviewer;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -25,12 +28,42 @@ public class InterviewSetupView {
     }
 
     public void initialSetup() {
-        System.out.println("Enter company details ");
+        System.out.println("-------------Enter company details---------- ");
         Scanner in = new Scanner(System.in);
         Company company = new Company();
-        System.out.println("\nEnter company name :");
-        company.setCompanyName(in.nextLine());
+        System.out.print("\nEnter company name :");
+        String name = in.nextLine();
+        System.out.print("\nCompany Phone number :");
+        String phoneNumber = in.nextLine();
+        System.out.print("\nCompany gmail id : ");
+        String gmail = in.nextLine();
+        interviewSetupModel.validate(name,phoneNumber,gmail,company);
+
+    }
+    public void onSuccess(Company company){
+        System.out.println("--Successfully created ");
         interviewSetupModel.createCompany(company);
+    }
+
+    public void getCandidateListDetails(){
+        ArrayList<Candidate> candidateList = InterviewDatabase.getInstance().getCandidateList();
+        int count = 1;
+        System.out.println("Candidate Details ::: \n_______________________________________");
+        for(Candidate candidate : candidateList){
+            System.out.print("\n" + count++ +  " --  Candidate name : " + candidate.getName());
+            System.out.print("\n --  Candidate Qualification : "+ candidate.getQualification() );
+            System.out.print("\n --  Candidate Email Id : " + candidate.getEmailId());
+            System.out.print("\n");
+        }
+    }
+    public void getInterviewerListDetails(){
+        ArrayList<Interviewer> interviewerList = InterviewDatabase.getInstance().getInterviewerList();
+        int  count = 1;
+        System.out.println("Interviewer Details ::: \n_______________________________________");
+        for(Interviewer interviewer : interviewerList){
+            System.out.println( count++ +  " --   Interviewer name : " + interviewer.getName() + "--" + "\n -- Email id : "+ interviewer.getEmailId()+"  -- ");
+            System.out.println("\n");
+        }
     }
 
     public void onSetupComplete(Company company){
@@ -51,18 +84,20 @@ public class InterviewSetupView {
                     new ManageCandidateView().initAdd();
                     break;
                 case 3:
-                    ManageInterviewerView.getInterviewerListDetails();
+                    getInterviewerListDetails();
                     break;
                 case 4:
-                    ManageCandidateView.getCandidateListDetails();
+                    getCandidateListDetails();
                     break;
                 case 5:
-                    System.out.println("Enter the interviewer Id to delete");
+                    getInterviewerListDetails();
+                    System.out.print("Enter the interviewer Id to delete : ");
                     int interviewerId = in.nextInt();
                     InterviewDatabase.getInstance().removeInterviewer(interviewerId);
                     break;
                 case 6:
-                    System.out.println("Enter the candidate Id  to delete");
+                    getCandidateListDetails();
+                    System.out.print("Enter the candidate Id  to delete : ");
                     int candidateId = in.nextInt();
                     InterviewDatabase.getInstance().removeCandidate(candidateId);
                     break;
@@ -70,15 +105,21 @@ public class InterviewSetupView {
                     new InterviewerLoginView().proceedLogin();
                     break;
                 case 9:
-                    System.out.println("\n-- You are logged out successfully -- \n\n");
+                    System.out.println("\n-- You are logged out successfully --");
                     new LoginView().init();
-                    return; // Exit from the current session
+                    break;
                 case 0:
                     System.out.println("\n-- Thanks for using " + InterviewPanel2024.getInstance().getAppName() + " --");
-                    return; // Exit from the application
+                    break;
                 default:
-                    System.out.println("\nPlease Enter valid choice\n");
+                    System.out.println("\nPlease Enter valid choice");
             }
         }
+    }
+
+    public void onLoginField(String text) {
+        System.out.print("\n----"+text+"----");
+        System.out.print("\n--------------------------------------------------");
+        initialSetup();
     }
 }

@@ -16,10 +16,10 @@ public class InterviewerLoginModel {
             if(isValidPassword(password)){
                 interviewerLoginView.loginSuccess();
             }else{
-                interviewerLoginView.onLoginField("Invalid  Password");
+                interviewerLoginView.onLoginField("---Invalid  Password---");
             }
         }else{
-            interviewerLoginView.onLoginField("Invalid Username");
+            interviewerLoginView.onLoginField("---Invalid Username---");
         }
     }
     private boolean isValidUserName(String userName)     {

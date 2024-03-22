@@ -12,16 +12,18 @@ public class ManageCandidateView {
         manageCandidateModel = new ManageCandidateModel(this);
     }
     public void initAdd() {
-        System.out.println("Enter the following candidate Details: ");
+        System.out.println("-------------------------------------------------------------------\n\n");
+        System.out.println("\n-------------->Candidate portal<-------------");
+        System.out.print("\nEnter the following candidate Details : ");
         Scanner scanner = new Scanner(System.in);
         Candidate candidate = new Candidate();
-        System.out.println("\nEnter candidate name:");
+        System.out.print("\nEnter candidate name : ");
         String name = scanner.next();
         candidate.setName(name);
-        System.out.println("\nEnter candidate gmailId(google mail):");
+        System.out.print("\nEnter candidate gmailId(google mail) : ");
         String gmail = scanner.next();
         candidate.setEmailId(gmail);
-        System.out.println("\nEnter candidate Qualification:");
+        System.out.print("\nEnter candidate Qualification : ");
         candidate.setQualification(scanner.next());
         if(manageCandidateModel.nameAndEmailVerification(name,gmail)){
             manageCandidateModel.addNewCandidate(candidate);
@@ -33,19 +35,6 @@ public class ManageCandidateView {
     public void alertMessage(String text){
         System.out.println(text);
         System.out.println("---------------------------------------------------");
-    }
-
-    public static void getCandidateListDetails(){
-        ArrayList<Candidate> candidateList = InterviewDatabase.getInstance().getCandidateList();
-        int count = 1;
-        for(Candidate candidate : candidateList){
-            System.out.println("Candidate Details ::: \n_______________________________________");
-
-            System.out.println( count++ +  " --  Candidate name : " + candidate.getName());
-            System.out.println(" --  Candidate Qualification : "+ candidate.getQualification() );
-            System.out.println(" --  Candidate Email Id : " + candidate.getEmailId());
-            System.out.println("\n");
-        }
     }
     public void onCandidateAdded(Candidate candidate){
         System.out.println("\n------- Candidate '" + candidate.getName() + "' added successfully ------- \n");

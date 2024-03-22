@@ -1,9 +1,9 @@
 package com.elavarasanno3.interviewpanel.datalayer;
 
+import com.elavarasanno3.interviewpanel.managecandidate.ManageCandidateView;
 import com.elavarasanno3.interviewpanel.model.Candidate;
 import com.elavarasanno3.interviewpanel.model.Company;
 import com.elavarasanno3.interviewpanel.model.Interviewer;
-
 import java.util.ArrayList;
 
 public class InterviewDatabase {
@@ -22,13 +22,11 @@ public class InterviewDatabase {
     }
     public void removeInterviewer(int id){
         if(!interviewerList.isEmpty()){
-            System.out.println("Interviewer " + interviewerList.get(id-1).getName()+" removed Successfully");
+            System.out.println("/n---Interviewer " + interviewerList.get(id-1).getName()+" removed Successfully---");
             interviewerList.remove(id-1);
         }else{
-            System.out.println("Interviewer list is Empty.");
+            System.out.println("/n---Interviewer list is Empty---.");
         }
-
-
     }
 
     public ArrayList<Candidate> getCandidateList(){
@@ -36,14 +34,18 @@ public class InterviewDatabase {
     }
     public void removeCandidate(int id){
         if(!candidateList.isEmpty()){
-            System.out.println("Candidate " + candidateList.get(id-1).getName()+" removed Successfully");
+            System.out.println("/n---Candidate " + candidateList.get(id-1).getName()+" removed Successfully---");
             candidateList.remove(id-1);
         }else{
-            System.out.println("Candidate list is empty.");
+            System.out.println("/n---Candidate list is empty---");
         }
 
     }
     public Candidate getCandidate(){
+        if(candidateList.isEmpty()){
+            System.out.println("---First add candidate---");
+            new ManageCandidateView().initAdd();
+        }
         Candidate candidate = candidateList.get(0);
         candidateList.remove(0);
         return candidate;

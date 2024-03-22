@@ -15,14 +15,14 @@ public class InterviewPanelView {
     }
     public void init(){
         Candidate candidate = InterviewDatabase.getInstance().getCandidate();
-        System.out.println("--Hello this is Interview Panel--");
-        System.out.println("-- Time to conduct an Interview --\n\n");
-        System.out.println("The candidate name is :" + candidate.getName());
-        System.out.println("Email id :" + candidate.getEmailId());
-        System.out.println("Qualification :" + candidate.getQualification()+ "\n");
-        System.out.println("Can we start the exam : yes/no");
-        System.out.println("if no then the candidate got rejected (Resume shortlist)");
-        System.out.println("--Any other key to exit--");
+        System.out.println("\n--------->Hello this is Interview Panel<---------");
+        System.out.println("\n-- Time to conduct an Interview --");
+        System.out.println("\nThe candidate name is :" + candidate.getName());
+        System.out.println("\nEmail id :" + candidate.getEmailId());
+        System.out.println("\n\nQualification :" + candidate.getQualification());
+        System.out.println("\nCan we start the exam : yes/no");
+        System.out.println("\n\nif no then the candidate got rejected (Resume shortlist) ");
+        System.out.println("\n--------->Any other key to exit<---------");
         String choice = in.next().toLowerCase();
         if(choice.equals("yes")){
             interviewPanelModel.startInterview(candidate);

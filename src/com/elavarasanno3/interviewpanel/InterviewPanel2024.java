@@ -1,5 +1,4 @@
 package com.elavarasanno3.interviewpanel;
-
 import com.elavarasanno3.interviewpanel.login.LoginView;
 
 public class InterviewPanel2024 {
