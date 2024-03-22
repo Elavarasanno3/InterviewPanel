@@ -75,40 +75,40 @@ public class InterviewSetupView {
             System.out.println("\n 1.Add Interviewer\n 2.Add Candidate\n 3.Get Interviewer Details\n" +
                     " 4.Get Candidate Details\n 5.Remove Interviewer \n 6.Remove Candidate \n 7.Interviewer Login \n" +
                     " 9.logout \n 0.Exit\n Enter your choice :");
-            int choice = in.nextInt();
+            String choice = in.next();
             switch (choice) {
-                case 1:
+                case "1":
                     new ManageInterviewerView().initAdd();
                     break;
-                case 2:
+                case "2":
                     new ManageCandidateView().initAdd();
                     break;
-                case 3:
+                case "3":
                     getInterviewerListDetails();
                     break;
-                case 4:
+                case "4":
                     getCandidateListDetails();
                     break;
-                case 5:
+                case "5":
                     getInterviewerListDetails();
                     System.out.print("Enter the interviewer Id to delete : ");
                     int interviewerId = in.nextInt();
                     InterviewDatabase.getInstance().removeInterviewer(interviewerId);
                     break;
-                case 6:
+                case "6":
                     getCandidateListDetails();
                     System.out.print("Enter the candidate Id  to delete : ");
                     int candidateId = in.nextInt();
                     InterviewDatabase.getInstance().removeCandidate(candidateId);
                     break;
-                case 7:
+                case "7":
                     new InterviewerLoginView().proceedLogin();
                     break;
-                case 9:
+                case "9":
                     System.out.println("\n-- You are logged out successfully --");
                     new LoginView().init();
                     break;
-                case 0:
+                case "0":
                     System.out.println("\n-- Thanks for using " + InterviewPanel2024.getInstance().getAppName() + " --");
                     break;
                 default:
